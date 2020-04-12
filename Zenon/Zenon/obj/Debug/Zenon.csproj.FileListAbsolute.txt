@@ -1,0 +1,10 @@
+C:\Users\Влад\source\repos\Zenon\Zenon\bin\Debug\Zenon.exe.config
+C:\Users\Влад\source\repos\Zenon\Zenon\bin\Debug\Zenon.exe
+C:\Users\Влад\source\repos\Zenon\Zenon\bin\Debug\Zenon.pdb
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.csprojAssemblyReference.cache
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.Form1.resources
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.Properties.Resources.resources
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.csproj.GenerateResource.cache
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.csproj.CoreCompileInputs.cache
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.exe
+C:\Users\Влад\source\repos\Zenon\Zenon\obj\Debug\Zenon.pdb
