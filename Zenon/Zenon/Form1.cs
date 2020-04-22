@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,74 +10,74 @@ namespace Zenon
         {
             InitializeComponent();
         }
-        float t = 0, dt, x = 0, y = 200, vaxil = 0, vtort = 0, d = 0;
-        public static int AWidth { get; } = 40;
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-        
-        private void Start_MouseClick(object sender, MouseEventArgs e)
-        {
-            timer1.Start();
-            timer1.Interval = 10;
-            float.TryParse(vax.Text, out vaxil);
-            float.TryParse(vtor.Text, out vtort); 
-        }
+        private float СoordinateTortilla = 150;
+        private float СoordinateAxiles=0;
+        private float VelocityAxiles;
+        private float VelocityTortilla;
+        private float Time = 0;
+        private float Distance;
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {   
-
             Graphics grf = e.Graphics;
             Pen pen = new Pen(Color.Red, 3);
             Pen pen2 = new Pen(Color.Green, 3);
-            grf.DrawRectangle(pen,x, 285, 100, 100);
-            grf.DrawEllipse(pen2,y, 360, 50, 50);
+            grf.DrawRectangle(pen, СoordinateAxiles, 285, 50, 100);
+            grf.DrawEllipse(pen2, СoordinateTortilla, 360, 50, 50);
         }
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            if (x>478)
+            if (СoordinateAxiles > pictureBox1.Width)
             {
-                x = -100;
+                СoordinateAxiles = -50;
             }
-            if (y > 528)
+            if (СoordinateTortilla > pictureBox1.Width)
             {
-                y = -50;
+                СoordinateTortilla = -50;
             }
-            x += (int)vaxil;
-            y += (int)vtort;
+            СoordinateAxiles += (int)VelocityAxiles;
+            СoordinateTortilla += (int)VelocityTortilla;
             pictureBox1.Refresh();
         }
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            if (x > 478)
+            if (СoordinateAxiles > pictureBox1.Width)
             {
-                x = -100;
+                СoordinateAxiles = -50;
             }
-            if (y > 528)
+            if (СoordinateTortilla > pictureBox1.Width)
             {
-                y = -50;
+                СoordinateTortilla = -50;
             }
-            d = y - x ;
-            t = d / vaxil;
-            dt = t / 100;
-            x += vaxil * dt;
-            y += vtort * dt;
+            Distance = СoordinateTortilla - СoordinateAxiles;
+            Time = Distance / VelocityAxiles;
+            СoordinateAxiles += VelocityAxiles * Time/100;
+            СoordinateTortilla += VelocityTortilla * Time/100;
             pictureBox1.Refresh();
         }
         private void Button1_MouseClick(object sender, MouseEventArgs e)
         {
-            timer2.Start();
-            timer2.Interval = 100;
-            float.TryParse(vax.Text, out vaxil);
-            float.TryParse(vtor.Text, out vtort);
+            if (checkBox1.Checked== true)
+            {
+                timer2.Start();
+                timer2.Interval = 10;
+                float.TryParse(vax.Text, out VelocityAxiles);
+                float.TryParse(vtor.Text, out VelocityTortilla);
+            }
+            else
+            {
+                timer1.Start();
+                timer1.Interval = 10;
+                float.TryParse(vax.Text, out VelocityAxiles);
+                float.TryParse(vtor.Text, out VelocityTortilla);
+            }
         }
-
         private void Button2_MouseClick(object sender, MouseEventArgs e)
         {
-            x = 0;
-            y = 200;
+            СoordinateAxiles = 0;
+            СoordinateTortilla = 200;
             timer1.Stop();
             timer2.Stop();
+            pictureBox1.Refresh();
         }
     }
 }
